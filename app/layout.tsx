@@ -1,21 +1,51 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const workSans = localFont({
+  src: [
+    {
+      path: "./fonts/WorkSans-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Thin.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-ExtraLight.ttf",
+      weight: "100",
+      style: "normal",
+    },
+  ],
+  variable: "--font-work-sans",
 });
 
 export const metadata: Metadata = {
-  title: "YC",
-  description:
-    "This is just a YConfig clone project to master the new Next.Js15 updated features",
+  title: "YC Directory",
+  description: "Pitch, Vote & Grow with YC Directory",
 };
 
 export default function RootLayout({
@@ -25,11 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={workSans.variable}>{children}</body>
     </html>
   );
 }
