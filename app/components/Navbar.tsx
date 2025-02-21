@@ -20,7 +20,7 @@ const Navbar = async () => {
                 <span className="">Create</span>
               </Link>
 
-              <form
+              <form // Server Action within Client Component Props
                 action={async () => {
                   "use server";
                   await signOut({ redirectTo: "/" });
@@ -34,7 +34,7 @@ const Navbar = async () => {
               </Link>
             </>
           ) : (
-            <form
+            <form // Server Action within Client Component Props
               action={async () => {
                 "use server";
                 await signIn("github");
