@@ -9,6 +9,7 @@ export default async function Home({
 
   return (
     <>
+      {/* Hero section */}
       <section className="pink_container">
         <h1 className="heading">
           Pitch your Startup, <br /> Connect with Entrepreneurs
@@ -17,6 +18,13 @@ export default async function Home({
           Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions
         </p>
         <SearchForm query={query} />
+      </section>
+
+      {/* Startup Cards Section */}
+      <section className="section_container">
+        <p className="text-30-semibold">
+          {query ? `Search results for "${query}"` : "All Startups"}
+        </p>
       </section>
     </>
   );
