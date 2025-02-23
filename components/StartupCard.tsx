@@ -12,6 +12,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     category,
     _id,
     image,
+    description,
   } = post;
 
   return (
@@ -43,6 +44,11 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
           />
         </Link>
       </div>
+
+      <Link href={`/startup/${_id}`}>
+        <p className="startup-card_desc">{description}</p>
+        <img src={image} alt="placeholder" className="startup-card_img" />
+      </Link>
     </li>
   );
 };
