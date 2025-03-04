@@ -5,6 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import markdownit from "markdown-it";
+
+const md = markdownit();
+
 export const experimental_ppr = true;
 
 const StartupDetailsPage = async ({
@@ -16,6 +20,8 @@ const StartupDetailsPage = async ({
   const post = await client.fetch(STARTUP_BY_ID_QUERY, { id });
 
   if (!post) return notFound();
+
+  const parsedContent = md.render(post?.pitch || "");
 
   return (
     <>
@@ -57,6 +63,16 @@ const StartupDetailsPage = async ({
             </Link>
 
             <p className="category-tag">{post.category}</p>
+
+            <h3 className="text-30-bold">Pitch Details</h3>
+            {parsedContent ? (
+              <article
+                dangerouslySetInnerHTML={{ __html: parsedContent }}
+                className="prose max-w-4xl font-work-sans break-all"
+              />
+            ) : (
+              <p className="no-result">No details provided</p>
+            )}
           </div>
         </div>
       </section>
