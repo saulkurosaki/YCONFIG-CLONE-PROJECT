@@ -1,6 +1,8 @@
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { STARTUP_BY_ID_QUERY } from "@/sanity/lib/queries";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const experimental_ppr = true;
@@ -31,6 +33,23 @@ const StartupDetailsPage = async ({
           alt="thumbnail"
           className="w-full h-auto rounded-xl"
         />
+
+        <div className="space-y-5 mt-10 max-w-4xl mx-auto">
+          <div className="flex-between gap-5">
+            <Link
+              href={`/user/${post.author?._id}`}
+              className="flex gap-2 items-center mb-3"
+            >
+              <Image
+                src={post.author.image}
+                alt="Avatar"
+                width={64}
+                height={64}
+                className="rounded-full drop-shadow-lg"
+              />
+            </Link>
+          </div>
+        </div>
       </section>
     </>
   );
