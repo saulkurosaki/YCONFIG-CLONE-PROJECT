@@ -47,6 +47,13 @@ const StartupDetailsPage = async ({
                 height={64}
                 className="rounded-full drop-shadow-lg"
               />
+
+              <div>
+                <p className="text-20-medium">{post.author.name}</p>
+                <p className="text-16-medium !text-black-300">
+                  @{post.author.username}
+                </p>
+              </div>
             </Link>
           </div>
         </div>
