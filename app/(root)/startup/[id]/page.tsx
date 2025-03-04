@@ -24,6 +24,14 @@ const StartupDetailsPage = async ({
 
         <p className="sub-heading !max-w-5xl">{post.description}</p>
       </section>
+
+      <section className="section_container">
+        <img
+          src={post.image}
+          alt="thumbnail"
+          className="w-full h-auto rounded-xl"
+        />
+      </section>
     </>
   );
 };
