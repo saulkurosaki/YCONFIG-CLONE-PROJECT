@@ -55,6 +55,8 @@ const StartupDetailsPage = async ({
                 </p>
               </div>
             </Link>
+
+            <p className="category-tag">{post.category}</p>
           </div>
         </div>
       </section>
