@@ -82,7 +82,7 @@ const StartupDetailsPage = async ({
 
         {/* TODO: EDITOR SELECTED STARTUPS */}
 
-        <Suspense fallback={<Skeleton />}></Suspense>
+        <Suspense fallback={<Skeleton className="view_skeleton" />}></Suspense>
       </section>
     </>
   );
