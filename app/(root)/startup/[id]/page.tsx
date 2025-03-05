@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import markdownit from "markdown-it";
+import { Suspense } from "react";
 
 const md = markdownit();
 
@@ -75,6 +76,12 @@ const StartupDetailsPage = async ({
             )}
           </div>
         </div>
+
+        <hr className="divider" />
+
+        {/* TODO: EDITOR SELECTED STARTUPS */}
+
+        <Suspense fallback={}></Suspense>
       </section>
     </>
   );
