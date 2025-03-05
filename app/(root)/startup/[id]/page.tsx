@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 
 import markdownit from "markdown-it";
 import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const md = markdownit();
 
@@ -81,7 +82,7 @@ const StartupDetailsPage = async ({
 
         {/* TODO: EDITOR SELECTED STARTUPS */}
 
-        <Suspense fallback={}></Suspense>
+        <Suspense fallback={<Skeleton />}></Suspense>
       </section>
     </>
   );
