@@ -67,7 +67,7 @@ const StartupForm = () => {
           name="link"
           className="startup-form_input"
           required
-          placeholder="Startup Image URl"
+          placeholder="Startup Image URL"
         />
 
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
