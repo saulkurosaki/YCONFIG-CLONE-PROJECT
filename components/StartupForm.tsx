@@ -41,20 +41,22 @@ const StartupForm = () => {
         )}
       </div>
 
-      {/* <div>
-        <label htmlFor="title" className="startup-form_label">
-          Title
+      <div>
+        <label htmlFor="category" className="startup-form_label">
+          Category
         </label>
         <Input
-          id="title"
-          name="title"
+          id="category"
+          name="category"
           className="startup-form_input"
           required
-          placeholder="Startup Title"
+          placeholder="Startup Category"
         />
 
-        {errors.title && <p className="startup-form_error">{errors.title}</p>}
-      </div> */}
+        {errors.category && (
+          <p className="startup-form_error">{errors.category}</p>
+        )}
+      </div>
 
       {/* <div>
         <label htmlFor="title" className="startup-form_label">
