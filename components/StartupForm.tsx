@@ -50,7 +50,7 @@ const StartupForm = () => {
           name="category"
           className="startup-form_input"
           required
-          placeholder="Startup Category"
+          placeholder="Startup Category (Tech, Health, Education...)"
         />
 
         {errors.category && (
@@ -58,20 +58,20 @@ const StartupForm = () => {
         )}
       </div>
 
-      {/* <div>
-        <label htmlFor="title" className="startup-form_label">
-          Title
+      <div>
+        <label htmlFor="link" className="startup-form_label">
+          Image URL
         </label>
         <Input
-          id="title"
-          name="title"
+          id="link"
+          name="link"
           className="startup-form_input"
           required
-          placeholder="Startup Title"
+          placeholder="Startup Image URl"
         />
 
-        {errors.title && <p className="startup-form_error">{errors.title}</p>}
-      </div> */}
+        {errors.link && <p className="startup-form_error">{errors.link}</p>}
+      </div>
     </form>
   );
 };
