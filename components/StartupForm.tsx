@@ -10,12 +10,14 @@ import { formSchema } from "@/lib/validation";
 import { z } from "zod";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState<string>();
   const router = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFormSubmit = async (prevState: any, formData: FormData) => {
     try {
       const formValues = {
@@ -28,19 +30,15 @@ const StartupForm = () => {
 
       await formSchema.parseAsync(formValues);
 
-      console.log(formValues);
+      const result = await createPitch(prevState, formData, pitch);
 
-      // const result = await createIdea(prevState, formData, pitch);
+      if (result.status === "SUCCESS") {
+        toast.success("Your startup pitch has been created successfully");
 
-      // console.log(result);
+        router.push(`/startup/${result.id}`);
+      }
 
-      // if (result.status === "SUCCESS") {
-      //   toast.success("Your startup pitch has been created successfully");
-
-      //   router.push(`/startup/${result.id}`);
-      // }
-
-      // return result;
+      return result;
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
