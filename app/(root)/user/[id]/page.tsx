@@ -4,7 +4,9 @@ import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
+// Enable PPR(Partial Pre-Rendering) in this file
 export const experimental_ppr = true;
 
 const ProfileDetailsPage = async ({
@@ -46,7 +48,10 @@ const ProfileDetailsPage = async ({
             {session?.id === id ? "Your" : "All"} Startups
           </p>
           <ul className="card_grid-sm">
-            <UserStartups />
+            {/* The React "Suspense" Tag Execute the PPR Strategy*/}
+            <Suspense fallback={<p>Loading...</p>}>
+              <UserStartups id={id} />
+            </Suspense>
           </ul>
         </div>
       </section>
