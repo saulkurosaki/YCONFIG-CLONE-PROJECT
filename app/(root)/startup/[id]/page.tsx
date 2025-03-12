@@ -51,7 +51,7 @@ const StartupDetailsPage = async ({
             >
               <Image
                 src={post.author.image}
-                alt="Avatar"
+                alt="avatar"
                 width={64}
                 height={64}
                 className="rounded-full drop-shadow-lg"
@@ -66,17 +66,17 @@ const StartupDetailsPage = async ({
             </Link>
 
             <p className="category-tag">{post.category}</p>
-
-            <h3 className="text-30-bold">Pitch Details</h3>
-            {parsedContent ? (
-              <article
-                dangerouslySetInnerHTML={{ __html: parsedContent }}
-                className="prose max-w-4xl font-work-sans break-all"
-              />
-            ) : (
-              <p className="no-result">No details provided</p>
-            )}
           </div>
+
+          <h3 className="text-30-bold">Pitch Details</h3>
+          {parsedContent ? (
+            <article
+              className="prose max-w-4xl font-work-sans break-all"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
+            />
+          ) : (
+            <p className="no-result">No details provided</p>
+          )}
         </div>
 
         <hr className="divider" />
