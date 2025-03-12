@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 const ProfileDetailsPage = async ({
@@ -22,6 +23,18 @@ const ProfileDetailsPage = async ({
               {user.name}
             </h3>
           </div>
+
+          <Image
+            src={user.image}
+            alt={user.name}
+            width={220}
+            height={220}
+            className="profile_image"
+          />
+
+          <p className="text-30-extrabold mt-7 text-center">
+            @{user?.username}
+          </p>
         </div>
       </section>
     </>
