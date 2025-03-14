@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { StartupCardSkeleton } from "@/components/StartupCard";
 import UserStartups from "@/components/UserStartups";
 import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
@@ -49,7 +50,7 @@ const ProfileDetailsPage = async ({
           </p>
           <ul className="card_grid-sm">
             {/* The React "Suspense" Tag Execute the PPR Strategy*/}
-            <Suspense fallback={<p>Loading...</p>}>
+            <Suspense fallback={<StartupCardSkeleton />}>
               <UserStartups id={id} />
             </Suspense>
           </ul>
