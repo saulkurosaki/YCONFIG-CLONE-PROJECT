@@ -16,6 +16,7 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 
 const md = markdownit();
 
+// Enable PPR(Partial Pre-Rendering) in this file
 export const experimental_ppr = true;
 
 const StartupDetailsPage = async ({
@@ -105,6 +106,7 @@ const StartupDetailsPage = async ({
           </div>
         )}
 
+        {/* The React "Suspense" Tag Execute the PPR Strategy*/}
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <View id={id} />
         </Suspense>
