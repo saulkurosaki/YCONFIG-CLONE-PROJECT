@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { cn, formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Image from "next/image";
@@ -41,8 +42,8 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
         <Link href={`/users/${author?._id}`}>
           <Image
-            src="https://placehold.co/48x48"
-            alt="placeholder"
+            src={author?.image!}
+            alt={author?.image!}
             width={48}
             height={48}
             className="rounded-full"
