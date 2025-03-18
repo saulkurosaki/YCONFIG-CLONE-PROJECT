@@ -4,8 +4,12 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io", "avatars.githubusercontent.com"],
   },
-  experimental: {
-    esmExternals: "loose",
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      ".js": [".js", ".ts", ".tsx"],
+      ".jsx": [".jsx", ".tsx"],
+    };
+    return config;
   },
 };
 
