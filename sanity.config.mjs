@@ -6,7 +6,8 @@ import { markdownSchema } from "sanity-plugin-markdown";
 import { apiVersion, dataset, projectId } from "./sanity/env.js";
 import { structure } from "./sanity/structure.js";
 
-export default defineConfig({
+const config = defineConfig({
+  basePath: "/studio",
   name: "default",
   title: "your-project-title",
   projectId,
@@ -18,3 +19,5 @@ export default defineConfig({
   ],
   schema,
 });
+
+export default config;

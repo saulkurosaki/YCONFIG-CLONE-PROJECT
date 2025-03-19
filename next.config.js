@@ -9,6 +9,7 @@ const nextConfig = {
       ".js": [".js", ".ts", ".tsx"],
       ".jsx": [".jsx", ".tsx"],
     };
+    config.resolve.mainFields = ["browser", "module", "main"];
     return config;
   },
   typescript: {
